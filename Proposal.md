@@ -1,4 +1,4 @@
-# Proposal
+# Project Proposal
 
 ## The big idea: 
 
