@@ -46,6 +46,7 @@ class Concentration:
         self.name = name
         self.total_creds = 0
         self.fMe = 0
+        self.adv_exp = 0
         self.adv_lib = 0
         self.adv_libe = 0
         self.ana_dm = ana_dm
@@ -77,6 +78,13 @@ class Concentration:
             t.append(s)
         else:
             s = "Standard Requirements: ❌"
+            t.append(s)
+
+        if self.adv_exp >= 1:
+            s = "Advanced Experiential: ✅"
+            t.append(s)
+        else:
+            s = "Advanced Experiential: ❌"
             t.append(s)
 
         if self.adv_lib >= 4: # num in credits
@@ -140,6 +148,11 @@ class Concentration:
         for a in self.courses:
             if a in general['Standard']:
                 self.std += 1
+
+    def adv_exper(self):
+        for a in self.courses:
+            if a in general['Adv_Experiential']:
+                self.adv_exp += 1
 
     def adv_libarts(self):
         store = ""
