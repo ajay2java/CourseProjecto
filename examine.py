@@ -1,7 +1,16 @@
 import csv
 
 from dict import general, business_analytics
-workbook = data(filename="")
+
+# with open("data/Course_template.csv", "r") as file:
+#     reader = csv.reader(file)
+
+from openpyxl import load_workbook
+workbook = load_workbook(filename="data/Course_template.xlsx")
+
+workbook.sheetnames
+
+sheet = workbook.active
 
 num = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 
@@ -41,21 +50,23 @@ num = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 
 class Concentration:
     
-    def __innit__(self, name, total_creds, ana_dm, ana_ad, ana_e, course_list=None):
+    def __init__(self, name, pre_req, course_list=None):
         ###
         self.name = name
-        self.total_creds = 0
+        self.total_creds = int(pre_req)
         self.fMe = 0
+        self.std = int(pre_req)
         self.adv_exp = 0
         self.adv_lib = 0
         self.adv_libe = 0
-        self.ana_dm = ana_dm
-        self.ana_ad = ana_ad
-        self.ana_e = ana_e
+        self.ana_dm = 0
+        self.ana_ad = 0
+        self.ana_e = 0
         if course_list is None:
             self.courses = []
         else:
             self.courses = course_list
+        print(self.courses)
     
     def __str__(self):
         t = [f"{self.name} College Course Status:"]
@@ -167,6 +178,7 @@ class Concentration:
     def adv_libarts_elec(self):
         store = ""
         for a in self.courses:
+            # print(a)
             for i in range(len(a)):
                 if a[i] in num:
                     store += a[i]
@@ -193,12 +205,49 @@ class Concentration:
 
 
 ### code that takes all courses from excel and puts them into a list##
-course_list = []
-#for i in range (len(excel)):
-    #course_list.append(i)
+# course_list = [sheet["A2"].value, sheet["A3"].value, sheet["A4"].value, sheet["A5"].value, sheet["A6"].value,
+#                sheet["A11"].value, sheet["A12"].value, sheet["A13"].value, sheet["A14"].value, sheet["A15"].value,
 
+#                sheet["E2"].value, sheet["E3"].value, sheet["E4"].value, sheet["E5"].value, sheet["E6"].value,
+#                sheet["E11"].value, sheet["E12"].value, sheet["E13"].value, sheet["E14"].value, sheet["E15"].value,
+
+#                sheet["I2"].value, sheet["I3"].value, sheet["I4"].value, sheet["I5"].value, sheet["I6"].value,
+#                sheet["I11"].value, sheet["I12"].value, sheet["I13"].value, sheet["I14"].value, sheet["I15"].value,
+               
+#                sheet["M2"].value, sheet["M3"].value, sheet["M4"].value, sheet["M5"].value, sheet["M6"].value,
+#                sheet["M11"].value, sheet["M12"].value, sheet["M13"].value, sheet["M14"].value, sheet["M15"].value]
+
+course_list = [sheet["A2"].value, sheet["A3"].value, sheet["A4"].value, sheet["A5"].value,
+               sheet["A11"].value, sheet["A12"].value, sheet["A13"].value, sheet["A14"].value,
+
+               sheet["E2"].value, sheet["E3"].value, sheet["E4"].value, sheet["E5"].value,
+               sheet["E11"].value, sheet["E12"].value, sheet["E13"].value, sheet["E14"].value,
+
+               sheet["I2"].value, sheet["I3"].value, sheet["I4"].value, sheet["I5"].value,
+               sheet["I11"].value, sheet["I12"].value, sheet["I13"].value, sheet["I14"].value,
+               
+               sheet["M2"].value, sheet["M3"].value, sheet["M4"].value, sheet["M5"].value,
+               sheet["M11"].value, sheet["M12"].value, sheet["M13"].value, sheet["M14"].value]
+
+print(len(course_list))
+# for z in range(len(course_list)):
+#     if course_list[z] == None:
+#         course_list.pop(z)
+#         z = z - 1
+
+
+
+#Put an int check on this!
 pre_req = input("How many credits from pre-Babson do you have, which counts?")
 
-Ajay = Concentration("Ajay", course_list, pre_req)
+Ajay = Concentration("Ajay", pre_req, course_list)
+Ajay.num_credits()
+Ajay.FME()
+Ajay.standard()
+Ajay.adv_libarts()
+Ajay.adv_libarts_elec()
+Ajay.analytics()
+
 print(Ajay)
 
+# print(sheet["A2"].value)
