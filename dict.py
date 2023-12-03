@@ -2,12 +2,12 @@
 
 general = {
     'One Credit': ['MOB2322','FYS1001','IMH25', 'IMH26'],
-    'Two Credit': ['OIM3610'],
-    'Three Credit': [],
-    'Six Credit': [],
+    'Two Credit': ['PRF1200', 'EPS3514', 'MOB3531', 'COM3511', 'COM3521', 'ECN3664', 'OIM3615', 'LIB3603', 'EPS3553', 'EPS3552', 'ENG4615', 'OIM3508', 'IND3612', 'IND3602', 'OIM4520', 'MOB3513', 'OIM2645', 'EPS3534', 'LIT4607', 'OIM3610', 'PRF1120', 'OIM3635'],
+    'Three Credit': ['IND3603', 'IND2503', 'SME2001', 'SME2012', 'SME2002', 'SME2021', 'SME2031'],
+    'Six Credit': ['SME2010', 'SME2000'],
     'Seventeen Credit': [],
     'FME': ['FME1000', 'FME1001', 'EPS1000', 'MOB1010'], 
-    'Standard': ['ACC1000', 'LAW1000', 'AQM1000', 'AQM2000'],
+    'Standard': ['ACC1000', 'LAW1000', 'AQM1000', 'AQM2000', 'WRT1001', 'WRT2000', 'FCI1000', 'NST10', 'ACC2002', 'OIM2001', 'OIM2000', 'MKT2000', 'FIN2000', 'ECN2002', 'ECN2000', 'HSS20', 'CVA20', 'LVA20', 'SES2000', 'STR3000'],
     'Adv_Experiential': ['COM3504', 'COM3522', 'ECN3600', 'ECN3601', 'EPS3534', 'EPS4515', 'FIN3560', 'MKT3540', 'MKT3575', 'MKT4505', 'MKT4520', 'MOB3534', 'OIM3536', 'SCN3602', 'STR 3508', 'FIN4520', 'FIN4521'],
 }
 
@@ -16,8 +16,8 @@ general = {
 # ex: if CSP 20 (from dict) is in CSP2056 (from person's excel)
 
 accounting = {
-    'Required': [],
-    'Elective': []
+    'Required': ['ACC3500', 'ACC3501', 'ACC4530'],
+    'Elective': ['TAX3500', 'TAX3650', 'ACC3510', 'ACC3546', 'ACC4520']
 }
 
 business_analytics = {
