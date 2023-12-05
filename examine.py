@@ -175,10 +175,10 @@ class Concentration:
 
 
 
-def store1(f):
+def store1(workbook):
 
-    workbook = load_workbook(filename=f)
-
+    # workbook = load_workbook(filename="data/{f}")
+    # workbook = load_workbook(filename=f)
 
     workbook.sheetnames
 
@@ -220,6 +220,7 @@ def store1(f):
     Ajay.adv_libarts_elec()
     Ajay.analytics()
 
-    print(Ajay)
+    # print(Ajay)
+    return(str(Ajay))
 
-store1("data/Course_template.xlsx")
+# store1("data/Course_template.xlsx")
