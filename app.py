@@ -28,20 +28,9 @@ def upload_file():
         f_name = f"data/{g}"
         out1 = store1(workbook)
         os.remove(f_name)
-        return f"{out1}\n"
+        return out1
     else:
         return render_template("index.html")
-
-
-# @app.route("/place/", methods=["GET", "POST"])
-# def get_place():
-#     if request.method == "POST":
-#         city_name = request.form.get("place")
-#         place_name = find_stop_near(city_name)
-#         return f"{city_name}: {place_name}."
-#     else:
-#         return render_template("place.html")
-
 
 
 if __name__ == '__main__':
