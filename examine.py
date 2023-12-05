@@ -212,15 +212,17 @@ def store1(workbook):
 
     pre_req = 0
 
-    Ajay = Concentration("Ajay", pre_req, course_list)
-    Ajay.num_credits()
-    Ajay.FME()
-    Ajay.standard()
-    Ajay.adv_libarts()
-    Ajay.adv_libarts_elec()
-    Ajay.analytics()
+    Object1 = Concentration("Ajay", pre_req, course_list)
+    Object1.num_credits()
+    Object1.FME()
+    Object1.standard()
+    Object1.adv_libarts()
+    Object1.adv_libarts_elec()
+    Object1.analytics()
 
     # print(Ajay)
-    return(str(Ajay))
+    # return(str(Object1))
+    return(Object1.__str__())
+
 
 # store1("data/Course_template.xlsx")

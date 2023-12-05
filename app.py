@@ -1,3 +1,4 @@
+import os
 from flask import Flask, redirect, render_template, request
 from examine import store1
 
@@ -17,10 +18,17 @@ def upload_file():
     if request.method == "POST":
         f = request.files["Upload File"]
         # f.save("data/course1.xlsx")
-        f.save(f"data/{f}")
-        workbook = load_workbook(filename=f"data/{f}")
+        g = str(f)
+        file_name = []
+        file_name = g.split(" ")
+        g = file_name[1]
+        g = g.strip("''")
+        f.save(f"data/{g}")
+        workbook = load_workbook(filename=f"data/{g}")
+        f_name = f"data/{g}"
         out1 = store1(workbook)
-        return out1
+        os.remove(f_name)
+        return f"{out1}\n"
     else:
         return render_template("index.html")
 
