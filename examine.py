@@ -1,14 +1,19 @@
 # import csv
 
 from dict import general, business_analytics
-
+# from app import f 
 
 from openpyxl import load_workbook
-workbook = load_workbook(filename="data/Course_template.xlsx")
 
-workbook.sheetnames
+# workbook = load_workbook(filename="data/Course_template.xlsx")
 
-sheet = workbook.active
+
+# workbook = load_workbook(filename=f)
+
+
+# workbook.sheetnames
+
+# sheet = workbook.active
 
 num = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 
@@ -168,38 +173,53 @@ class Concentration:
                 continue
 
 
-### code that takes all courses from excel and puts them into a list##
-course_list = [sheet["A2"].value, sheet["A3"].value, sheet["A4"].value, sheet["A5"].value, sheet["A6"].value,
-               sheet["A11"].value, sheet["A12"].value, sheet["A13"].value, sheet["A14"].value, sheet["A15"].value,
-
-               sheet["E2"].value, sheet["E3"].value, sheet["E4"].value, sheet["E5"].value, sheet["E6"].value,
-               sheet["E11"].value, sheet["E12"].value, sheet["E13"].value, sheet["E14"].value, sheet["E15"].value,
-
-               sheet["I2"].value, sheet["I3"].value, sheet["I4"].value, sheet["I5"].value, sheet["I6"].value,
-               sheet["I11"].value, sheet["I12"].value, sheet["I13"].value, sheet["I14"].value, sheet["I15"].value,
-               
-               sheet["M2"].value, sheet["M3"].value, sheet["M4"].value, sheet["M5"].value, sheet["M6"].value,
-               sheet["M11"].value, sheet["M12"].value, sheet["M13"].value, sheet["M14"].value, sheet["M15"].value]
 
 
+def store1(f):
+
+    workbook = load_workbook(filename=f)
 
 
-for z in course_list:
-    if z == sheet["B3"].value:
-        course_list.remove(z)
+    workbook.sheetnames
+
+    sheet = workbook.active
+
+    ### code that takes all courses from excel and puts them into a list##
+    course_list = [sheet["A2"].value, sheet["A3"].value, sheet["A4"].value, sheet["A5"].value, sheet["A6"].value,
+                sheet["A11"].value, sheet["A12"].value, sheet["A13"].value, sheet["A14"].value, sheet["A15"].value,
+
+                sheet["E2"].value, sheet["E3"].value, sheet["E4"].value, sheet["E5"].value, sheet["E6"].value,
+                sheet["E11"].value, sheet["E12"].value, sheet["E13"].value, sheet["E14"].value, sheet["E15"].value,
+
+                sheet["I2"].value, sheet["I3"].value, sheet["I4"].value, sheet["I5"].value, sheet["I6"].value,
+                sheet["I11"].value, sheet["I12"].value, sheet["I13"].value, sheet["I14"].value, sheet["I15"].value,
+                
+                sheet["M2"].value, sheet["M3"].value, sheet["M4"].value, sheet["M5"].value, sheet["M6"].value,
+                sheet["M11"].value, sheet["M12"].value, sheet["M13"].value, sheet["M14"].value, sheet["M15"].value]
 
 
-    
 
-#Put an int check on this!
-pre_req = input("How many credits from pre-Babson do you have, which counts? ")
 
-Ajay = Concentration("Ajay", pre_req, course_list)
-Ajay.num_credits()
-Ajay.FME()
-Ajay.standard()
-Ajay.adv_libarts()
-Ajay.adv_libarts_elec()
-Ajay.analytics()
+    for z in course_list:
+        if z == sheet["B3"].value:
+            course_list.remove(z)
 
-print(Ajay)
+
+        
+
+    #Put an int check on this!
+    # pre_req = input("How many credits from pre-Babson do you have, which counts? ")
+
+    pre_req = 0
+
+    Ajay = Concentration("Ajay", pre_req, course_list)
+    Ajay.num_credits()
+    Ajay.FME()
+    Ajay.standard()
+    Ajay.adv_libarts()
+    Ajay.adv_libarts_elec()
+    Ajay.analytics()
+
+    print(Ajay)
+
+store1("data/Course_template.xlsx")
