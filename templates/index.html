@@ -4,16 +4,66 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CourseProjecto</title>
+    <style>
+      p {
+        color: red;
+        background-color: yellow;
+        font-family:Arial, Helvetica, sans-serif;
+      }
+      .blue-color {
+        color: blue;
+      }
+      #sec-2 {
+        color: blueviolet;
+      }
+      form{
+        background-color: lightgray;
+        padding: 5px;
+      }
+      body{
+        background-color: forestgreen;
+      }
+      a:hover{
+        background-color: green;;
+      }
+    </style>
   </head>
   <body>
+
+    <h1>
+      CourseProjecto
+      <a href="https://www.babson.edu/about/course-catalog/new-course-search/undergraduate/all-courses/oim3640/" target="_blank"
+        ><img src="https://cdn-icons-png.flaticon.com/512/4762/4762311.png" alt="" height="100"
+      /></a>
+    </h1>
+    <!-- <p>Feel Free to Download the <a href = "https://docs.google.com/spreadsheets/d/1OrA8JPSFdvIUdSFmOTO4KdSZ25fQl-OIhsj2xffqJ8Q/edit#gid=0" download = "Template">Excel Template</a>!</p> -->
+    <p>Feel Free to Open the Link Below, and Download as Excel File.</p>
+    <button type = "button" onclick = "downloadFile()"> File Link </button>
+    <p>Visit Babson <a href="https://www.babson.edu/about/course-catalog/new-course-search/?courseType=undergraduate" target="_blank">Course Catalog</a>.</p>
+
+    <script>
+      function downloadFile() {
+         window.open("https://docs.google.com/spreadsheets/d/1OrA8JPSFdvIUdSFmOTO4KdSZ25fQl-OIhsj2xffqJ8Q/edit#gid=0")
+      }
+   </script>
+
     <form action="" method="post" enctype="multipart/form-data">
       <label for="">
-        FileU:
+        File Upload:
         <input type="file" name="Upload File" />
       </label>
       <button>Check Results</button>
     </form>
+  
   <body>
-    <p>Hi, please attach the filled out sample template to be processed.</p>
+    <p>Only '.xlsx' files should be uploaded.</p>
+    
+    <!-- <h2 class="blue-color" id="sec-2">Section 2</h2>
+    <p class="blue-color">
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione tenetur,
+      fugiat et autem non voluptatibus. -->
+    </p>
+
+    <footer>Ajay Subramanian & Mark Sirazi&copy;</footer>
   </body>
 </html>

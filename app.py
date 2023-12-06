@@ -5,7 +5,6 @@ from examine import store1
 from openpyxl import load_workbook
 
 
-
 app = Flask(__name__)
 
 @app.errorhandler(404)
@@ -28,9 +27,16 @@ def upload_file():
         f_name = f"data/{g}"
         out1 = store1(workbook)
         os.remove(f_name)
-        return out1
+        return render_template("list.html", len=len(out1), out1=out1)
+        # return out1
+        # return "\n".join(out1)
     else:
         return render_template("index.html")
+    
+# @app.post("/result/")
+# @app.route("/result", methods=["GET", "POST"])
+# def feedback():
+#     if request.method == "POST":
 
 
 if __name__ == '__main__':

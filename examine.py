@@ -86,7 +86,8 @@ class Concentration:
             t.append(s)
         # repeat for other concentrations
         
-        return "\n".join(t)
+        # return "\n".join(t)
+        return t
             
     
     def num_credits(self):
