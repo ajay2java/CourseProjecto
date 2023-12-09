@@ -22,6 +22,10 @@ def upload_file():
         file_name = g.split(" ")
         g = file_name[1]
         g = g.strip("''")
+        if "data/" + g == "data/":
+            return render_template("404.html")
+        if ".xlsx" not in g:
+            return render_template("404.html")
         f.save(f"data/{g}")
         workbook = load_workbook(filename=f"data/{g}")
         f_name = f"data/{g}"
