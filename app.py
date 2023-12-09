@@ -16,12 +16,15 @@ def page_not_found(e):
 def upload_file():
     if request.method == "POST":
         f = request.files["Upload File"]
-        # f.save("data/course1.xlsx")
         g = str(f)
+
+        # We do the next 4-Lines below to isolate the actual name of the file, from the excess wording. The result of this will be ____.xlsx
         file_name = []
         file_name = g.split(" ")
         g = file_name[1]
         g = g.strip("''")
+
+        # These two if-statements check for any errors, and report them to the 404.html for the proper output.
         if "data/" + g == "data/":
             return render_template("404.html")
         if ".xlsx" not in g:
@@ -30,17 +33,12 @@ def upload_file():
         workbook = load_workbook(filename=f"data/{g}")
         f_name = f"data/{g}"
         out1 = store1(workbook)
+        #This will remove the entered user file to clear up the space.
         os.remove(f_name)
+        # sends out1 variable to list.html to display it in a better visual manner.
         return render_template("list.html", len=len(out1), out1=out1)
-        # return out1
-        # return "\n".join(out1)
     else:
         return render_template("index.html")
-    
-# @app.post("/result/")
-# @app.route("/result", methods=["GET", "POST"])
-# def feedback():
-#     if request.method == "POST":
 
 
 if __name__ == '__main__':

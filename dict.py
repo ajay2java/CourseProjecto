@@ -1,4 +1,8 @@
-# FME = []
+# This file has dictionaries with all the list of courses for the various categories (# of credits, standard requirements, Advanced Experiential).
+
+# Also included are the list of courses for each type of concentration.
+
+# Key: There are no lists for Advanced liberal arts or Advanced liberal arts Elective or General Electives, a those encompass courses w/ specific digits in the course name (ex: 46XX, X1XX, X5XX).
 
 general = {
     'One Credit': ['MOB2322','FYS1001','IMH25', 'IMH26'],
@@ -11,10 +15,6 @@ general = {
     'Adv_Experiential': ['COM3504', 'COM3522', 'ECN3600', 'ECN3601', 'ECN3664', 'EPS3534', 'EPS3551', 'EPS4515', 'FIN3560', 'FIN4520', 'LAW3504', 'LIT4682', 'MFE3534', 'MKT3502', 'MKT3540', 'MKT3575', 'MKT4505', 'MKT4515', 'MKT4520', 'OIM3501', 'OIM3517', 'OIM3536', 'QTM3635', 'SCN3602', 'STR3500', 'STR3508'],
 }
 
-
-#'Adv_LiberalArts': ['If >= 4600'],
-#'Adv_LiberalArts_Elec': ['If >= 3600']
-# ex: if CSP 20 (from dict) is in CSP2056 (from person's excel)
 
 accounting = {
     'Required': ['ACC3500', 'ACC3501', 'ACC4530'],
@@ -147,6 +147,5 @@ tech_entr_des = {
     'Elective': ['DES3600', 'ECN3675', 'ENGR1200', 'ENGR2141', 'AHSE2141', 'ENGR3210', 'ENGR3220', 'EPS3504', 'EPS3509', 'EPS3513', 'EPS3531', 'EPS3537', 'LAW3675', 'LVA2075', 'OIM3517', 'OIM3522', 'OIM3578', 'OIM3635', 'SCN3655']
 }
 
-# Any language course at the 2000 level and above
-#babson study abroad is 17 credits!!!
+
 
