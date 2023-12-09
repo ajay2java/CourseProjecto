@@ -29,6 +29,7 @@ class Concentration:
         self.adv_exp = 0
         self.adv_lib = 0
         self.adv_libe = 0
+        self.gen_e = 0
 
         self.acc_req = 0
         self.acc_ele = 0
@@ -156,6 +157,13 @@ class Concentration:
             t.append(s)
         else:
             s = "Advanced Liberal Arts Elective: ❌"
+            t.append(s)
+        
+        if self.gen_e >= 20:
+            s = "General Elective: ✅"
+            t.append(s)
+        else:
+            s = "General Elective: ❌"
             t.append(s)
         
         if self.acc_req == 3 and self.acc_ele >= 1:
@@ -321,7 +329,7 @@ class Concentration:
             for i in range(len(a)):
                 if a[i] in num:
                     store += a[i]
-            if int(store) >= 4600:
+            if len(store) == 4 and '46' == store[0:2]:
                 self.adv_lib += self.get_num_creds(a)
             store = ""
 
@@ -332,8 +340,19 @@ class Concentration:
             for i in range(len(a)):
                 if a[i] in num:
                     store += a[i]
-            if int(store) >= 3600:
+            if len(store) == 4 and store[1] == '6':
                 self.adv_libe += self.get_num_creds(a)
+            store = ""
+
+    def gen_elective(self):
+        store = ""
+        for a in self.courses:
+            # print(a)
+            for i in range(len(a)):
+                if a[i] in num:
+                    store += a[i]
+            if len(store) == 4 and (store[1] == '1' or store[1] == '2' or store[1] == '5' or store[1] == '6'):
+                self.gen_e += self.get_num_creds(a)
             store = ""
 
     def accounting(self):
@@ -591,8 +610,10 @@ def store1(workbook):
     Object1.num_credits()
     Object1.FME()
     Object1.standard()
+    Object1.adv_exper()
     Object1.adv_libarts()
     Object1.adv_libarts_elec()
+    Object1.gen_elective()
     
     Object1.accounting()
     Object1.analytics()
