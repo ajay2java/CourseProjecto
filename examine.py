@@ -437,6 +437,8 @@ class Concentration:
         for a in self.courses:
             if a in econ['Required']:
                 self.econr += 1
+                if self.econr == 2:
+                    self.econe += 1
             elif a in econ['Elective']:
                 self.econe += 1
 
@@ -456,9 +458,17 @@ class Concentration:
 
     def financee(self):
         """This method checks to see if any courses meet the Finance Concentration, and populates the self.fin variable."""
+        real_estate = 0
         for a in self.courses:
             if a in finance['General']:
-                self.fin += 1
+                if a in finance['Real Estate']:
+                    real_estate += 1
+                    if real_estate > 1:
+                        self.fin += 0
+                    else:
+                        self.fin += 1
+                else:
+                    self.fin += 1
         
     def global_regional_studies(self):
         """This method checks to see if any courses meet the Global and Regional Studies Concentration, and populates the self.grs1 or grs2 variable depending on the category the course is matched to."""
