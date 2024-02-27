@@ -48,6 +48,7 @@ enviro_sust = {
 }
 
 finance = {
+    'Real Estate': ['FIN3555', 'FIN3565', 'FIN4571'],
     'General': ['FIN3502', 'FIN3515', 'FIN3520', 'FIN3535', 'FIN3555', 'FIN3560', 'FIN3565', 'FIN4504', 'FIN4505', 'FIN4507', 'FIN4510', 'FIN4520', 'FIN4521', 'FIN4530', 'FIN4535', 'FIN4540', 'FIN4545', 'FIN4560', 'FIN4570', 'FIN4571']
 }
 
