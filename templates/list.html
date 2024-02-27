@@ -1,28 +1,43 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Projections</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
 
-<html> 
-<head> 
-	<title>Course Projections</title> 
-	<style>
-		p {
-		  color: white;
-		  font-family:Arial, Helvetica, sans-serif;
-		}
-		body{
-		  background-color: grey;
-		}
-	  </style>
-</head> 
-<body> 
+        ol {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px;
+        }
 
-<ol> 
+        li {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
 
-{% for i in range(0, len) %} 
+        li:last-child {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
 
-	<li>{{ out1[i] }}</li> 
-{% endfor %} 
+<ol>
+    {% for i in range(0, len) %}
+        <li>{{ out1[i] }}</li>
+    {% endfor %}
+</ol>
 
-</ol> 
-
-</body> 
-</html> 
+</body>
+</html>
