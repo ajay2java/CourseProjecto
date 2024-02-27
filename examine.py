@@ -69,6 +69,7 @@ class Concentration:
         # This is for the Historical and Political Studies Concentration
         self.hist = 0
         self.pol = 0
+        self.hp3000 = 0
 
         # This is for the Identity and Diversity Concentration
         self.idr = 0
@@ -231,7 +232,7 @@ class Concentration:
             s = "Global and Regional Studies Concentration: ✅"
             t.append(s)
 
-        if self.hist >= 1 and self.pol >= 1 and self.hist + self.pol >= 4:
+        if self.hist >= 1 and self.pol >= 1 and self.hist + self.pol >= 4 and self.hp3000 >= 2:
             s = "Historical and Political Studies Concentration: ✅"
             t.append(s)
 
@@ -482,6 +483,8 @@ class Concentration:
         """This method checks to see if any courses meet the Historical and Political Studies Concentration, and populates the self.hist and pol variable."""
         for a in self.courses:
             if a in hist_pol['Historical']:
+                if int(a[3:]) >= 3000:
+                    self.hp3000 += 1
                 if self.hist == 1:
                     # if someone has already previously taken a course in this category, the code only adds an additional 1 if the course has 3XXX or 4XXX in the id.
                     if a[3] in num:
@@ -490,6 +493,8 @@ class Concentration:
                 else:
                     self.hist += 1
             elif a in hist_pol['Political']:
+                if int(a[3:]) >= 3000:
+                    self.hp3000 += 1
                 if self.pol == 1:
                     # if someone has already previously taken a course in this category, the code only adds an additional 1 if the course has 3XXX or 4XXX in the id.
                     if a[3] in num:
@@ -625,7 +630,10 @@ class Concentration:
         """This method checks to see if any courses meet the Tech Entrepreneurship Concentration, and populates the self.ter and tee variables."""
         for a in self.courses:
             if a in tech_entr['Required']:
-                self.ter += 1
+                if self.ter == 2:
+                    self.tee += 1
+                else:
+                    self.ter += 1
             elif a in tech_entr['Elective']:
                 self.tee += 1
     
