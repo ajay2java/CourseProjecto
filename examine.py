@@ -1,7 +1,10 @@
 from dict import general, accounting, business_analytics, comp_math_fin, econ, entre, enviro_sust, finance, global_reg_studies, hist_pol, iden_diver, info_tech, int_business, jcs, leadership, legal_studies, lit_visual, man_fin_pl, marketing, operations_mgmt, quant_m, real_estate, retail_scm, social_culture, strat_cult, tech_entr, tech_entr_des
 
+import csv
+
 from openpyxl import load_workbook
 
+from openpyxl import Workbook
 
 ### This list is CRUCIAL --> It allows us to identify where the number part of the course id is:
 
@@ -9,6 +12,11 @@ num = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 
 # ex input: 'OIM3640' --> the code below will go letter by letter till it finds one that's in the 'num' list (In this case, 3). From there, it will start from 3 and go through the rest of the string, and store it in a variable.
 # Here: 3640 will be stored in a variable to be checked against requirements.
+
+# workbook = Workbook()
+# sheet = workbook.active
+# sheet["B1"] = "yes"
+# workbook.save(filename="data/database.csv")
 
 
 class Concentration:
@@ -726,6 +734,38 @@ def store1(workbook):
     Object1.strategy_consulting()
     Object1.tech_entrepreneurship()
     Object1.tech_entre_design()
+
+    #######
+    with open("data/database.csv", "w", encoding="utf-8", newline="") as f:
+        writer = csv.writer(f)
+
+        fields = ("School Year", "Standard", "Adv Exp", "Adv Liberal Arts", "Adv Liberal Arts Elective", "Gen Elective")
+        writer.writerow(fields)
+
+        list_copy = Object1.__str__()
+        listcopy = []
+        copp1 = list_copy[3]
+        if "✅" in copp1:
+            copp1 = "Y"
+        else:
+            copp1 = "N"
+        # listcopy.append(list_copy[3])
+        # listcopy.append(list_copy[4])
+        # listcopy.append(list_copy[5])
+        # listcopy.append(list_copy[6])
+        # listcopy.append(list_copy[7])
+        #writer.writerows(copp1)
+        # workbook = openpyxl.load_workbook("data/database.csv")
+        # worksheet = workbook.get_sheet_by_name('database')
+        # worksheet['D3'] = "Y"
+        # #writer.writerows(Object1.__str__())
+        #f["A2"].value = copp1
+    #########
+
+    # workbook = Workbook()
+    # sheet = workbook.active
+    # sheet["B1"] = "yes"
+    # workbook.save(filename="data/database.csv")
 
 
    # Finally, we return it to 'app.py'
