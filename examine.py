@@ -736,19 +736,19 @@ def store1(workbook):
     Object1.tech_entre_design()
 
     #######
-    with open("data/database.csv", "w", encoding="utf-8", newline="") as f:
-        writer = csv.writer(f)
+    # with open("data/database.csv", "w", encoding="utf-8", newline="") as f:
+    #     writer = csv.writer(f)
 
-        fields = ("School Year", "Standard", "Adv Exp", "Adv Liberal Arts", "Adv Liberal Arts Elective", "Gen Elective")
-        writer.writerow(fields)
+    #     fields = ("School Year", "Standard", "Adv Exp", "Adv Liberal Arts", "Adv Liberal Arts Elective", "Gen Elective")
+    #     writer.writerow(fields)
 
-        list_copy = Object1.__str__()
-        listcopy = []
-        copp1 = list_copy[3]
-        if "✅" in copp1:
-            copp1 = "Y"
-        else:
-            copp1 = "N"
+    #     list_copy = Object1.__str__()
+    #     listcopy = []
+    #     copp1 = list_copy[3]
+    #     if "✅" in copp1:
+    #         copp1 = "Y"
+    #     else:
+    #         copp1 = "N"
         # listcopy.append(list_copy[3])
         # listcopy.append(list_copy[4])
         # listcopy.append(list_copy[5])
