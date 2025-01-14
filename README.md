@@ -1,5 +1,4 @@
-# oim3640_TermProject
-Final Project for OIM3640 (Problem Solving &amp; Software Design)
+# Course Planner for Babson Students
+Allows Babson students to input planned courses, receiving an output which displays the requirements they've met + any fulfilled concentrations.
 
-Team Members: Ajay Subramanian & Mark Sirazi
 
