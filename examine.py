@@ -1,7 +1,5 @@
 from dict import general, accounting, business_analytics, comp_math_fin, econ, entre, enviro_sust, finance, global_reg_studies, hist_pol, iden_diver, info_tech, int_business, jcs, leadership, legal_studies, lit_visual, man_fin_pl, marketing, operations_mgmt, quant_m, real_estate, retail_scm, social_culture, strat_cult, tech_entr, tech_entr_des, sales, sports_mgmt
 
-import csv
-
 from openpyxl import load_workbook
 
 from openpyxl import Workbook
