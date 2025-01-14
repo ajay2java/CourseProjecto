@@ -1,4 +1,4 @@
-from dict import general, accounting, business_analytics, comp_math_fin, econ, entre, enviro_sust, finance, global_reg_studies, hist_pol, iden_diver, info_tech, int_business, jcs, leadership, legal_studies, lit_visual, man_fin_pl, marketing, operations_mgmt, quant_m, real_estate, retail_scm, social_culture, strat_cult, tech_entr, tech_entr_des
+from dict import general, accounting, business_analytics, comp_math_fin, econ, entre, enviro_sust, finance, global_reg_studies, hist_pol, iden_diver, info_tech, int_business, jcs, leadership, legal_studies, lit_visual, man_fin_pl, marketing, operations_mgmt, quant_m, real_estate, retail_scm, social_culture, strat_cult, tech_entr, tech_entr_des, sales, sports_mgmt
 
 import csv
 
@@ -147,6 +147,14 @@ class Concentration:
         self.ted_r1 = 0
         self.ted_r2 = 0
         self.ted_r3 = 0
+
+        # These three are for the Sales Concentration
+        self.sales_r1 = 0
+        self.sales_r2 = 0
+
+        # These three are for the Sports Management Concentration
+        self.sports_r1 = 0
+        self.sports_r2 = 0
 
         # This populates self.course, which has the full list of courses a student will take throughout their 4 years of college
         if course_list is None:
@@ -310,6 +318,18 @@ class Concentration:
 
         if self.ted_r1 == 1 and self.ted_r2 >= 1 and self.ted_r3 >= 2:
             s = "Technology, Entrepreneurship, and Design Concentration: ✅"
+            t.append(s)
+        
+        if self.sales_r1 >= 2 and self.sales_r2 >= 2:
+            s = "Sales Concentration: ✅"
+            t.append(s)
+        
+        if self.sales_r1 >= 3 and self.sales_r2 >= 1:
+            s = "Sales Concentration: ✅"
+            t.append(s)
+        
+        if self.sports_r1 >= 2 and self.sports_r2 >= 2:
+            s = "Sports Management Concentration: ✅"
             t.append(s)
         
         return t
@@ -654,6 +674,20 @@ class Concentration:
                 self.ted_r2 += 1
             elif a in tech_entr_des['Elective']:
                 self.ted_r3 += 1
+    
+    def sales_conc(self):
+        for a in self.courses:
+            if a in sales['Required']:
+                self.sales_r1 += 1
+            elif a in sales['Elective']:
+                self.sales_r2 += 1
+
+    def sports_management(self):
+        for a in self.courses:
+            if a in sports_mgmt['Required']:
+                self.sports_r1 += 1
+            elif a in sports_mgmt['Elective']:
+                self.sports_r2 += 1
 
 
 def store1(workbook):
@@ -734,43 +768,12 @@ def store1(workbook):
     Object1.strategy_consulting()
     Object1.tech_entrepreneurship()
     Object1.tech_entre_design()
-
-    #######
-    # with open("data/database.csv", "w", encoding="utf-8", newline="") as f:
-    #     writer = csv.writer(f)
-
-    #     fields = ("School Year", "Standard", "Adv Exp", "Adv Liberal Arts", "Adv Liberal Arts Elective", "Gen Elective")
-    #     writer.writerow(fields)
-
-    #     list_copy = Object1.__str__()
-    #     listcopy = []
-    #     copp1 = list_copy[3]
-    #     if "✅" in copp1:
-    #         copp1 = "Y"
-    #     else:
-    #         copp1 = "N"
-        # listcopy.append(list_copy[3])
-        # listcopy.append(list_copy[4])
-        # listcopy.append(list_copy[5])
-        # listcopy.append(list_copy[6])
-        # listcopy.append(list_copy[7])
-        #writer.writerows(copp1)
-        # workbook = openpyxl.load_workbook("data/database.csv")
-        # worksheet = workbook.get_sheet_by_name('database')
-        # worksheet['D3'] = "Y"
-        # #writer.writerows(Object1.__str__())
-        #f["A2"].value = copp1
-    #########
-
-    # workbook = Workbook()
-    # sheet = workbook.active
-    # sheet["B1"] = "yes"
-    # workbook.save(filename="data/database.csv")
+    Object1.sales_conc()
+    Object1.sports_management()
 
 
    # Finally, we return it to 'app.py'
     return(Object1.__str__())
 
 
-# store1("data/Course_template.xlsx")
 

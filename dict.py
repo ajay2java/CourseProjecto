@@ -115,7 +115,7 @@ operations_mgmt = {
 }
 
 quant_m = {
-    'Required': ['QTM2600', 'QTM2601', 'QTM2622', 'QTM2623', 'QTM3605', 'QTM3610', 'QTM3615', 'QTM3620', 'QTM3625', 'QTM3635', 'QTM3674', 'QTM3675']
+    'Required': ['QTM2600', 'QTM2601', 'QTM2622', 'QTM2623', 'QTM3605', 'QTM3610', 'QTM3615', 'QTM3620', 'QTM3625', 'QTM3635', 'QTM3674', 'QTM3675', 'QTM3601']
 }
 
 real_estate = {
@@ -146,6 +146,16 @@ tech_entr_des = {
     'Required': ['EPS3501'],
     'Req2': ['EPS3536', 'EPS4515', 'ENGR2250'],
     'Elective': ['DES3600', 'ECN3675', 'ENGR1200', 'ENGR2141', 'AHSE2141', 'ENGR3210', 'ENGR3220', 'EPS3504', 'EPS3509', 'EPS3513', 'EPS3531', 'EPS3537', 'LAW3675', 'LVA2075', 'OIM3517', 'OIM3522', 'OIM3578', 'OIM3635', 'SCN3655']
+}
+
+sales = {
+    'Required': ['MKT3574', 'MOB3580', 'MKT4520'],
+    'Elective': ['COM3500', 'FIN3512', 'MKT3501', 'MOB3512', 'OIM3509']
+}
+
+sports_mgmt = {
+    'Required': ['LAW3504', 'LAW3615', 'MKT3503', 'MKT3575', 'POL4640', 'QTM2622'],
+    'Elective': ['LAW3573', 'LIT4607', 'MOB3512', 'MOB3515', 'MOB3580', 'MKT3540', 'MKT3550', 'MKT3574', 'MKT4520']
 }
 
 
